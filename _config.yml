@@ -1,0 +1,8 @@
+url: http://www.example.com
+
+languages: ["en", "de"]
+exclude_from_localizations: ["assets", "CNAME"]
+defaultLang: en
+languageNames:
+  de: Deutsch
+  en: English
