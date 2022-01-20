@@ -42,6 +42,14 @@
 
 
 <body>
+    <script>
+        var lang = navigator.language || navigator.userLanguage;
+        if (lang.indexOf('de') == 0)
+            window.location = '/de/';
+        else
+            window.location = '/en/';
+    </script>
+    
     <main id="content" class="main-area">
         <div class="border"></div>
         <div class="L1-1"></div>
