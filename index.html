@@ -45,11 +45,7 @@
     <!-- Multi-Lingual-->
     <script>
         var lang = navigator.language || navigator.userLanguage;
-       /* if (lang.indexOf('en-US') == 0)
-            //window.location = '/IP/';
-            alert("IP page!");
-        else
-            window.location = '/metric/';*/
+        if (!(lang.indexOf('en-US') == 0)) {window.location = '/metric/';}
     </script>
 
     <main id="content" class="main-area">
