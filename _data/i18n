@@ -1,8 +1,0 @@
-in:
-  label: English
-  icon: 🇬🇧
-  read_it_in: "Read it in"
-it is:
-  label: Spanish
-  icon: 🇪🇸
-  read_it_in: "Read it on"
