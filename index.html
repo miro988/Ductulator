@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<html lang="en-US">
 
 <head>
     <meta charset="utf-8">
@@ -9,15 +9,16 @@
     <meta name="author" content="Miro Zaroukian">
     <meta name="description" content="Free online ductulator for sizing of HVAC ducts.">
     <meta name="robots" content="noarchive" />
-    <title>Online Ductulator</title>
+    <title>Ductulator</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- link to local websites-->
-    <link rel="canonical" href="https://www.ductulator.com/">
+    <!-- <link rel="canonical" href="https://www.ductulator.com/">
     <link rel="alternate" hreflang="x-default" href="https://www.ductulator.com/en-US/">
     <link rel="alternate" hreflang="en-US" href="https://www.ductulator.com/en-US/" title="English (USA)">
-    <link rel="alternate" hreflang="fa" href="https://www.ductulator.com/fa/" title="فارسی">
-
+    <link rel="alternate" hreflang="fa" href="https://www.ductulator.com/fa/" title="فارسی"> -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9961965949221561"
+    crossorigin="anonymous"></script>
 
     <!-- end of link to local websites-->
     <script src="myscript.js"></script>
@@ -36,8 +37,8 @@
 
 <header class="master-header">
     <!-- <h3 class="logo"></h3> -->
-    <div class="site-title"> <a href="/help.html">Help</a> | <a href=".">Ductulator.com <small>(Beta)</small></a>
-    | <a href="/about.html">About</a></div>
+    <div class="site-title"> <a href=".">Ductulator.com</a> | <a href="/help.html">Help</a> 
+        </div>
 </header>
 
 
@@ -45,7 +46,7 @@
     <!-- Multi-Lingual-->
     <script>
         var lang = navigator.language || navigator.userLanguage;
-        if (!(lang.indexOf('en-US') == 0)) {window.location = '/metric/';}
+        if (!(lang.indexOf('en-US') == 0)) { window.location = '/metric/'; }
     </script>
 
     <main id="content" class="main-area">
@@ -56,7 +57,7 @@
         <!-- .Left Bar -->
         <div class="L1-3">
             <input type="number" name="CFM" id="CFM" min="50" max="50000" step="50" value="200" oninput="KeyPressed()"
-                onkeydown="DoMath(event)" required autofocus>
+                onkeydown="DoMath(event)" required autofocus pattern="\d*">
             <span>CFM</span>
         </div>
         <!-- .Left Bar onclick="this.select();"-->
@@ -67,7 +68,7 @@
         <div class="L2-2">Maximum Air Velocity:</div>
         <!-- .Left Bar -->
         <div class="L2-3">
-            <input type="number" name="FPM" min="50" max="50000" step="50" value="800" oninput="KeyPressed()" required>
+            <input type="number" name="FPM" min="50" max="3200" step="50" value="800" oninput="KeyPressed()" required pattern="\d*">
             <span>FPM</span>
         </div>
         <!-- .Left Bar -->
@@ -85,7 +86,7 @@
                 <option value="0.01">0.01</option>
             </select>-->
             <input type="number" name="inWg" min="0.06" max="2.0" step="0.02" value="0.08" oninput="KeyPressed()"
-                required>
+                required pattern="\d*"/>
             <span> InWg</span>
         </div>
         <!-- .Left Bar -->
@@ -150,7 +151,15 @@
     </main>
 </body>
 <div class="footer">
-    <p>&copy; 2017-2022 Miro Zaroukian. All rights reserved.</p>
+    <p><td valign="top">Pressure drop calculations are based on Hazen–Williams equation. <br>Air Density=0.0751 lbm/ft3 standard air, Duct Roughness Factor=0.0003 ft for sheet metal and Air Dynamic Viscocity=0.018 cP.
+
+    </td>
+</p>
+    <a href="https://ductulator.com/metric/" style="color:yellow;">Go to Metric Version</a>
+    <br>
+    <p>&copy; 2017-
+        <script>document.write(/\d{4}/.exec(Date())[0])</script> Miro Zaroukian. All rights reserved.
+    </p>
 </div>
 
 </html>

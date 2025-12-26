@@ -1,37 +1,76 @@
-<HTML>
+<!DOCTYPE html>
 
-<HEAD>
 
-<TITLE>Your Title Here</TITLE>
+<head>
+<style>
+    .frame {
+      width: 730px;
+      height: 457px;
+      border: 3px solid rgb(72, 240, 6);
+      background: rgb(17, 8, 87);
+      margin: auto;
+      padding: 0px 0px;
+      box-shadow: 5px 10px #888888;
+      vertical-align: middle;
+    }
+    /*img {
+       width: 100%;
+      height: 100%; 
+    }*/
+  </style>    
+  
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords"
+        content="HVAC,duct sizing,duct,HVAC duct,ductulator,online ductulator,how to size ducts,how to size hvac ducts">
+    <meta name="author" content="Miro Zaroukian">
+    <meta name="description" content="Free online ductulator for sizing of HVAC ducts.">
+    <meta name="robots" content="noarchive" />
+    <title>Ductulator</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- link to local websites-->
+    <link rel="canonical" href="https://www.ductulator.com/">
+    <link rel="alternate" hreflang="x-default" href="https://www.ductulator.com/en-US/">
+    <link rel="alternate" hreflang="en-US" href="https://www.ductulator.com/en-US/" title="English (USA)">
+    <link rel="alternate" hreflang="fa" href="https://www.ductulator.com/fa/" title="فارسی">
 
-</HEAD>
 
-<BODY BGCOLOR="FFFFFF">
+    <!-- end of link to local websites-->
+    
+    <link rel="stylesheet" href="style.css" type="text/css" media="all">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HJ2X9TRN3H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-<CENTER><IMG SRC="clouds.jpg" ALIGN="BOTTOM"> </CENTER>
+        gtag('config', 'G-HJ2X9TRN3H');
+    </script>
+</head>
 
-<HR>
+<header class="master-header">
+    <!-- <h3 class="logo"></h3> -->
+    <div class="site-title"> <a href="/help.html">Help</a> | <a href=".">Ductulator.com </a>
+    | <a href="/about.html">About</a></div>
+</header>
 
-<a href="http://somegreatsite.com">Link Name</a>
 
-is a link to another nifty site
+<body>
+    <!-- Multi-Lingual-->
+    
+    <script>
+        var lang = navigator.language || navigator.userLanguage;
+        if (!(lang.indexOf('en-US') == 0)) {window.location = '/metric/';}
+    </script>
+<div class="frame">
+    <img src="Ductulator Help Animation.gif" alt="Nature">
+  </div>
 
-<H1>This page is Under Costruction</H1>
+</body>
+<div class="footer">
+    <p>&copy; 2017-2022 Miro Zaroukian. All rights reserved.</p>
+</div>
 
-<H2>This is a Medium Header</H2>
-
-Send me mail at <a href="mailto:support@yourcompany.com">
-
-support@yourcompany.com</a>.
-
-<P> This is a new paragraph!
-
-<P> <B>This is a new paragraph!</B>
-
-<BR> <B><I>This is a new sentence without a paragraph break, in bold italics.</I></B>
-
-<HR>
-
-</BODY>
-
-</HTML>
+</html>
