@@ -155,7 +155,7 @@ function renderOutput(options) {
   const round = options.find((item) => item.type === "round");
   if (round) {
     const roundRow = document.createElement("tr");
-    roundRow.innerHTML = `<td class="size-cell"><div class="size-spinner size-spinner--left"><div class="stepper size-stepper"><button type="button" class="step-btn size-stepbtn step-btn--up" aria-label="Increase round duct size" onclick="stepRoundSize(2)">▲</button><button type="button" class="step-btn size-stepbtn step-btn--down" aria-label="Decrease round duct size" onclick="stepRoundSize(-2)">▼</button></div><input class="size-input" type="number" dir="rtl" name="Ldsize" id="00" min="4" step="2" value="${round.diameter}" oninput="CalcMeRnd()" required><span class="size-unit">"Ø</span></div></td>
+    roundRow.innerHTML = `<td class="size-cell"><div class="size-spinner size-spinner--left"><div class="stepper size-stepper"><button type="button" class="step-btn size-stepbtn table-spinner step-btn--up" aria-label="Increase round duct size" onclick="stepRoundSize(2)">▲</button><button type="button" class="step-btn size-stepbtn table-spinner step-btn--down" aria-label="Decrease round duct size" onclick="stepRoundSize(-2)">▼</button></div><input class="size-input" type="number" dir="rtl" name="Ldsize" id="00" min="4" step="2" value="${round.diameter}" oninput="CalcMeRnd()" required><span class="size-unit">"Ø</span></div></td>
         <td class="Vel" id="01">${round.velocity}</td>
         <td><small>FPM</small></td>
         <td class="StLoss" id="02">${round.staticLoss}</td>
@@ -175,11 +175,7 @@ function renderOutput(options) {
   const inchSpanIds = [];
   rectOptions.forEach((item) => {
     const row = document.createElement("tr");
-    row.innerHTML = `<td class="size-cell"><input type="number" dir="rtl" name="Ldsize" id="${rowIndex}0" step="2" min="4" value="${item.width}"
-                oninput="CalcMeRec(${rowIndex})" required>"x
-            <input type="number" name="Rdsize" step="2" min="4" value="${item.height}" oninput="CalcMeRec(${rowIndex})" id="${rowIndex}1"
-                required><span class="inchSpan">"</span>
-        </td>
+    row.innerHTML = `<td class="size-cell"><div class="size-spinner size-spinner--left"><div class="stepper size-stepper"><button type="button" class="step-btn size-stepbtn table-spinner step-btn--up" aria-label="Increase rectangular width" onclick="stepRectWidth(${rowIndex}, 2)">▲</button><button type="button" class="step-btn size-stepbtn table-spinner step-btn--down" aria-label="Decrease rectangular width" onclick="stepRectWidth(${rowIndex}, -2)">▼</button></div><input class="size-input" type="number" dir="rtl" name="Ldsize" id="${rowIndex}0" step="2" min="4" value="${item.width}" oninput="CalcMeRec(${rowIndex})" required></div>"x <input class="size-input" type="number" name="Rdsize" step="2" min="4" value="${item.height}" oninput="CalcMeRec(${rowIndex})" id="${rowIndex}1" required> <div class="size-spinner size-spinner--right"><div class="stepper size-stepper"><button type="button" class="step-btn size-stepbtn table-spinner step-btn--up" aria-label="Increase rectangular height" onclick="stepRectHeight(${rowIndex}, 2)">▲</button><button type="button" class="step-btn size-stepbtn table-spinner step-btn--down" aria-label="Decrease rectangular height" onclick="stepRectHeight(${rowIndex}, -2)">▼</button></div></div><span class="inchSpan">"</span></td>
         <td class="Vel" id="${rowIndex}2">${item.velocity}</td>
         <td><small>FPM</small></td>
         <td class="StLoss" id="${rowIndex}3">${item.staticLoss}</td>
@@ -235,7 +231,7 @@ function injectSizeSpinnerStyles() {
   const css = `
     .size-spinner { display: inline-flex; align-items: center; gap: 0; }
     .size-spinner .stepper { margin: 0; }
-    .size-input { margin: 0; }
+    .size-input { margin: 0; height: 34px; vertical-align: middle; }
     .size-unit { margin-left: 0; padding-left: 0.25em; }
   `;
   const s = document.createElement("style");
@@ -277,4 +273,32 @@ function stepRoundSize(delta) {
   }
   input.focus();
   CalcMeRnd();
+}
+
+function stepRectWidth(rowIndex, delta) {
+  const input = document.getElementById(`${rowIndex}0`);
+  if (!input) return;
+  const step = Number(input.step) || 1;
+  const steps = Math.round(delta / step);
+  if (steps > 0) {
+    input.stepUp(steps);
+  } else if (steps < 0) {
+    input.stepDown(-steps);
+  }
+  input.focus();
+  CalcMeRec(rowIndex);
+}
+
+function stepRectHeight(rowIndex, delta) {
+  const input = document.getElementById(`${rowIndex}1`);
+  if (!input) return;
+  const step = Number(input.step) || 1;
+  const steps = Math.round(delta / step);
+  if (steps > 0) {
+    input.stepUp(steps);
+  } else if (steps < 0) {
+    input.stepDown(-steps);
+  }
+  input.focus();
+  CalcMeRec(rowIndex);
 }

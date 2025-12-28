@@ -66,7 +66,7 @@ header {
 }
 
 input[type=number] {
-    width: 2.8em;
+
     padding: 2px 2px;
     border-radius: 6px 0px 0px 6px;
     border: none;
@@ -76,9 +76,9 @@ input[type=number] {
 
 }
 
-input[name=Ldsize],
+
 input[name=Rdsize] {
-    width: 3em;
+    width: 1.5em;
     text-align: left;
     background-color: transparent;
     padding: 0 0px;
@@ -87,7 +87,8 @@ input[name=Rdsize] {
 input[name=Ldsize] {
     width: 2.5em;
     text-align: right;
-    background-color: transparent
+    background-color: transparent;
+    padding: 0 0px;
 }
 
 /* ---- 
@@ -142,7 +143,7 @@ input[type=number]::-webkit-inner-spin-button {
     border: 0px solid #ccc;
     background: #f2f3f1;
     border-radius: 0;
-    width: 18px;
+    width: 25px;
     flex: 1;
     min-height: 10px;
     line-height: 1;
@@ -178,8 +179,9 @@ input[type=number]::-webkit-inner-spin-button {
     background: transparent;
     border: none;
     color: #666;
-    width: 16px;
+    width: 25px;
     padding: 0 2px;
+    padding-left: 15px;
 }
 
 .unit-label {
@@ -378,7 +380,6 @@ a {
 }
 
 .size-input {
-    width: 1.6em;
     /* adjust as needed */
     margin: 0;
     padding: 2px 0.15em;
