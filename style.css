@@ -1,7 +1,7 @@
 body,
 header {
     background-color: #223C68;
-    
+
 }
 
 .inWg,
@@ -21,8 +21,17 @@ input[type=number] {
 .L3-2,
 small {
     font-weight: 100;
-    color:#000000
-    
+    color: #000000
+}
+
+.L1-2,
+.L2-2,
+.L3-2 {
+    white-space: nowrap;
+    padding-right: 6px;
+    align-self: center;
+    display: flex;
+    align-items: center;
 }
 
 header {
@@ -38,9 +47,9 @@ header {
             max-width: 50em;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: auto 6px 15px 8em 23em 6px auto;
-            grid-template-rows: 20px repeat(3, 1em 2em) auto;
-            grid-template-areas: " . . . . . . . "". . L1-1 L1-2 R1-1  . ."". . L1-1 L1-3 R1-1  . ."". . L2-1 L2-2 R1-1  . ."". . L2-1 L2-3 R1-1  . ."". . L3-1 L3-2 R1-1  . ."". . L3-1 L3-3 R1-1  . ."". . L4-1 L4-1 R1-1  . ."
+            grid-template-columns: auto 6px 12px 9.8em 20.5em 16px auto;
+            grid-template-rows: 20px repeat(3, auto auto) auto;
+            grid-template-areas: " . . . . . . . " ". . L1-1 L1-2 R1-1  . ." ". . L1-1 L1-3 R1-1  . ." ". . L2-1 L2-2 R1-1  . ." ". . L2-1 L2-3 R1-1  . ." ". . L3-1 L3-2 R1-1  . ." ". . L3-1 L3-3 R1-1  . ." ". . L4-1 L4-1 R1-1  . ."
         }
     }
 
@@ -49,27 +58,30 @@ header {
             max-width: 50em;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: auto 10px 15px 21em 10px auto;
-            grid-template-rows: 20px repeat(3, 1em 2em) auto;
-            grid-template-areas: " . . . . . . . "". . L1-1 L1-2 .  . ."". . L1-1 L1-3 .  . ."". . L2-1 L2-2 .  . ."". . L2-1 L2-3 .  . ."". . L3-1 L3-2 .  . ."". . L3-1 L3-3 .  . ."". . R1-1 R1-1 R1-1  R1-1 ."
+            grid-template-columns: auto 6px 12px minmax(8em, 1fr) 8px auto;
+            grid-template-rows: 20px repeat(3, auto auto) auto;
+            grid-template-areas: " . . . . . . . " ". . L1-1 L1-2 .  . ." ". . L1-1 L1-3 .  . ." ". . L2-1 L2-2 .  . ." ". . L2-1 L2-3 .  . ." ". . L3-1 L3-2 .  . ." ". . L3-1 L3-3 .  . ." ". . R1-1 R1-1 R1-1  R1-1 ."
         }
     }
 }
 
 input[type=number] {
-    width: 4em;
-    padding-right: 0;
-    border-radius: 5px;
+    width: 3.5em;
+    padding: 2px 2px;
+    border-radius: 6px 0px 0px 6px;
     border: none;
     text-align: right;
-    position: relative
+    position: relative;
+    box-sizing: border-box;
+
 }
 
 input[name=Ldsize],
 input[name=Rdsize] {
     width: 3em;
     text-align: left;
-    background-color: transparent
+    background-color: transparent;
+    padding: 0 2px;
 }
 
 input[name=Ldsize] {
@@ -77,6 +89,7 @@ input[name=Ldsize] {
     text-align: right;
     background-color: transparent
 }
+
 /* ---- 
 input[name=Ldsize]:,
 input[name=Rdsize]:active {
@@ -94,13 +107,75 @@ input[name=Ldsize]:hover,
 input[name=Rdsize]:hover {
     text-decoration: underline
 }
-input[name=Ldsize]::-webkit-inner-spin-button {
-  opacity: 0.5;
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
-input[name=Rdsize]::-webkit-inner-spin-button {
-    opacity: 0.5;
-  }
+.step-group {
+    display: inline-grid;
+    grid-template-columns: max-content max-content max-content;
+    justify-content: start;
+    align-items: center;
+    column-gap: 0;
+}
+
+.step-group input[type=number] {
+
+    max-width: 5em;
+    height: 34px;
+    font-size: 1.15em;
+    text-align: right;
+    border-radius: 6px 0 0 6px;
+}
+
+.stepper {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    height: 34px;
+}
+
+.step-btn {
+    border: 0px solid #ccc;
+    background: #ffffff;
+    border-radius: 0;
+    width: 20px;
+    flex: 1;
+    min-height: 10px;
+    line-height: 1;
+    text-align: center;
+    padding: 0;
+    font-size: 12px;
+    cursor: pointer;
+    color: #b0b0b0;
+}
+
+.step-btn:active {
+    background: #b3b3b3;
+}
+
+.step-btn:first-child {
+    border-top-right-radius: 6px;
+}
+
+.step-btn:last-child {
+    border-bottom-right-radius: 6px;
+}
+
+.unit-label {
+    font-size: 1em;
+    font-weight: 400;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #000;
+    justify-self: start;
+    text-align: left;
+    min-width: 3.2em;
+    margin-left: 6px;
+}
+
 
 .inWg {
     text-align: center;
@@ -132,9 +207,11 @@ input[name=Rdsize]::-webkit-inner-spin-button {
 .L1-1,
 .L2-1,
 .L3-1 {
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     margin-right: 5px;
-    margin-left: 5px
+    margin-left: 5px;
+    width: 5px;
+    height: 58px
 }
 
 .L1-2 {
@@ -180,21 +257,66 @@ input[name=Rdsize]::-webkit-inner-spin-button {
 table.R1-1 {
     grid-area: R1-1;
     font-size: 1.2em;
-    border-spacing: 0 5px;
-    table-layout: fixed
+    border-spacing: 0 4px;
+    table-layout: auto;
+    width: calc(100% - 10px);
+    max-width: calc(100% - 10px);
+}
+
+table.R1-1 td {
+    padding: 3px 2px;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+table.R1-1 td:first-child {
+    width: 9.5em;
+    white-space: nowrap;
 }
 
 small {
-    font-size: .7em
+    font-size: .6em
 }
 
-#R1C {
-    background-color: green;
-    width: 3px
+table.R1-1 td small {
+    display: inline-block;
+    margin-right: 8px;
 }
 
+table.R1-1 td[colspan="5"]>small {
+    display: inline-block;
+    padding-left: 12px;
+}
+
+#R1C,
 #R2C {
-    background-color: #90ee90
+    width: 5px;
+    min-width: 5px;
+    max-width: 5px;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+    background: transparent;
+}
+
+#R1C::before,
+#R2C::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 5px;
+    /* shift from cell left edge to align with left bars */
+    width: 5px;
+    /* thickness of the colored bar */
+}
+
+#R1C::before {
+    background-color: green;
+}
+
+#R2C::before {
+    background-color: #90ee90;
 }
 
 tr:hover {
@@ -230,4 +352,36 @@ td {
 
 a {
     color: #fff
+}
+
+@media only screen and (max-width:600px) {
+    body {
+        font-size: 18px;
+    }
+
+    .main-area {
+        padding: 0 8px;
+    }
+
+    .step-group {
+        grid-template-columns: auto auto auto;
+    }
+
+    .step-group input[type=number] {
+        font-size: 1.2em;
+    }
+
+    .step-btn {
+        width: 20px;
+        font-size: 15px;
+    }
+
+    table.R1-1 {
+        font-size: 1.15em;
+        border-spacing: 0 2px;
+    }
+
+    table.R1-1 td {
+        padding: 5px 4px;
+    }
 }

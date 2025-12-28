@@ -8,158 +8,119 @@
         content="HVAC,duct sizing,duct,HVAC duct,ductulator,online ductulator,how to size ducts,how to size hvac ducts">
     <meta name="author" content="Miro Zaroukian">
     <meta name="description" content="Free online ductulator for sizing of HVAC ducts.">
-    <meta name="robots" content="noarchive" />
+    <meta name="robots" content="noarchive">
     <title>Ductulator</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <!-- link to local websites-->
-    <!-- <link rel="canonical" href="https://www.ductulator.com/">
-    <link rel="alternate" hreflang="x-default" href="https://www.ductulator.com/en-US/">
-    <link rel="alternate" hreflang="en-US" href="https://www.ductulator.com/en-US/" title="English (USA)">
-    <link rel="alternate" hreflang="fa" href="https://www.ductulator.com/fa/" title="فارسی"> -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9961965949221561"
-    crossorigin="anonymous"></script>
-
-    <!-- end of link to local websites-->
     <script src="myscript.js"></script>
-    <script src="ductscript.js"></script>
     <link rel="stylesheet" href="style.css" type="text/css" media="all">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HJ2X9TRN3H"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-HJ2X9TRN3H');
     </script>
 </head>
 
-<header class="master-header">
-    <!-- <h3 class="logo"></h3> -->
-    <div class="site-title"> <a href=".">Ductulator.com</a> | <a href="/help.html">Help</a> 
-        </div>
-</header>
-
-
 <body>
-    <!-- Multi-Lingual-->
+    <!-- Redirect non-US visitors to metric version -->
     <script>
         var lang = navigator.language || navigator.userLanguage;
         if (!(lang.indexOf('en-US') == 0)) { window.location = '/metric/'; }
     </script>
 
+    <header class="master-header">
+        <div class="site-title"><a href=".">Ductulator.com</a> | <a href="/help.html">Help</a></div>
+    </header>
+
     <main id="content" class="main-area">
         <div class="border"></div>
         <div class="L1-1"></div>
-        <!-- .Left Bar -->
-        <div class="L1-2">Airflow Rate:</div>
-        <!-- .Left Bar -->
-        <div class="L1-3">
-            <input type="number" name="CFM" id="CFM" min="50" max="50000" step="50" value="200" oninput="KeyPressed()"
-                onkeydown="DoMath(event)" required autofocus pattern="\d*">
-            <span>CFM</span>
+        <label class="L1-2" for="CFM">Airflow Rate:</label>
+        <div class="L1-3 step-group">
+            <input type="number" name="CFM" id="CFM" min="50" max="50000" step="50" value="800" inputmode="decimal"
+                oninput="KeyPressed()" onkeydown="DoMath(event)" required autofocus>
+            <div class="stepper">
+                <button type="button" class="step-btn step-btn--up" aria-label="Increase airflow"
+                    onclick="stepInput('CFM', 50)">▲</button>
+                <button type="button" class="step-btn step-btn--down" aria-label="Decrease airflow"
+                    onclick="stepInput('CFM', -50)">▼</button>
+            </div>
+            <span class="unit-label">CFM</span>
         </div>
-        <!-- .Left Bar onclick="this.select();"-->
-
 
         <div class="L2-1"></div>
-        <!-- .Left Bar -->
-        <div class="L2-2">Maximum Air Velocity:</div>
-        <!-- .Left Bar -->
-        <div class="L2-3">
-            <input type="number" name="FPM" min="50" max="3200" step="50" value="800" oninput="KeyPressed()" required pattern="\d*">
-            <span>FPM</span>
+        <label class="L2-2" for="FPM">Maximum Air Velocity:</label>
+        <div class="L2-3 step-group">
+            <input type="number" name="FPM" id="FPM" min="50" max="3200" step="50" value="800" inputmode="decimal"
+                oninput="KeyPressed()" required>
+            <div class="stepper">
+                <button type="button" class="step-btn step-btn--up" aria-label="Increase air velocity"
+                    onclick="stepInput('FPM', 50)">▲</button>
+                <button type="button" class="step-btn step-btn--down" aria-label="Decrease air velocity"
+                    onclick="stepInput('FPM', -50)">▼</button>
+            </div>
+            <span class="unit-label">FPM</span>
         </div>
-        <!-- .Left Bar -->
 
         <div class="L3-1"></div>
-        <!-- .Left Bar onfocus="this.select();"-->
-        <div class="L3-2">Max. Static Loss/100ft:</div>
-        <!-- .Left Bar -->
-        <div class="L3-3">
-
-            <!-- <select class="inWg" name="inWg" onchange="KeyPressed()">
-                <option value="0.1">0.10</option>
-                <option value="0.08">0.08</option>
-                <option value="0.06">0.06</option>
-                <option value="0.01">0.01</option>
-            </select>-->
-            <input type="number" name="inWg" min="0.06" max="2.0" step="0.02" value="0.08" oninput="KeyPressed()"
-                required pattern="\d*"/>
-            <span> InWg</span>
+        <label class="L3-2" for="inWg">Max. Static Loss/100ft:</label>
+        <div class="L3-3 step-group">
+            <input type="number" name="inWg" id="inWg" min="0.06" max="2.0" step="0.02" value="0.08" inputmode="decimal"
+                oninput="KeyPressed()" required>
+            <div class="stepper">
+                <button type="button" class="step-btn step-btn--up" aria-label="Increase static loss"
+                    onclick="stepInput('inWg', 0.02)">▲</button>
+                <button type="button" class="step-btn step-btn--down" aria-label="Decrease static loss"
+                    onclick="stepInput('inWg', -0.02)">▼</button>
+            </div>
+            <span class="unit-label">InWg</span>
         </div>
-        <!-- .Left Bar -->
 
         <table class="R1-1" id="OutputTable">
-            <!--cellspacing="50">-->
             <tbody>
                 <tr>
                     <td rowspan="2" id="R1C"></td>
                     <td colspan="5"><small id="HeadText">Round duct:</small></td>
                 </tr>
                 <tr>
-                    <td><input type="number" dir="rtl" name="Ldsize" id=00 min="4" step="2" value="8"
-                            oninput="CalcMeRnd()" required>"Ø</td>
-                    <td class="Vel" id=01>573</td>
-                    <td><small> FPM</small></td>
-                    <td class="StLoss" id=02>0.073</td>
+                    <td class="size-cell"><input type="number" dir="rtl" name="Ldsize" id="00" min="4" step="2"
+                            value="8" oninput="CalcMeRnd()" required>"Ø</td>
+                    <td class="Vel" id="01">573</td>
+                    <td><small>FPM</small></td>
+                    <td class="StLoss" id="02">0.073</td>
                     <td><small>inWg/100ft</small></td>
-
                 </tr>
-
                 <tr>
                     <td rowspan="4" id="R2C"></td>
-                    <td colspan="5">
-                        <small>Rectangular duct:</small>
-                    </td>
+                    <td colspan="5"><small>Rectangular duct:</small></td>
                 </tr>
                 <tr>
-                    <td><input type="number" dir="rtl" name="Ldsize" id=10 step="2" min="4" value="8"
-                            oninput="CalcMeRec(1)" required>"x
-                        <input type="number" name="Rdsize" step="2" min="4" value="8" oninput="CalcMeRec(1)" id=11
+                    <td class="size-cell"><input type="number" dir="rtl" name="Ldsize" id="10" step="2" min="4"
+                            value="8" oninput="CalcMeRec(1)" required>"x
+                        <input type="number" name="Rdsize" step="2" min="4" value="8" oninput="CalcMeRec(1)" id="11"
                             required><span class="inchSpan">"</span>
                     </td>
-                    <td class="Vel" id=12>4500</td>
+                    <td class="Vel" id="12">4500</td>
                     <td><small>FPM</small></td>
-
-                    <td class="StLoss" id=13>0.047 </td>
+                    <td class="StLoss" id="13">0.047</td>
                     <td><small>inWg/100ft</small></td>
-
                 </tr>
-                <!--<tr>
-                    <td>10"x6"</td>
-                    <td class="Vel">480 
-                        <small>FPM</small>
-                    </td>
-                    <td class="StLoss">0.058
-                        <small>inWg/100ft</small>
-                    </td>
-                </tr>
-                <tr>
-                    <td>16"x4"</td>
-                    <td class="Vel">450
-                        <small>FPM</small>
-                    </td>
-                    <td class="StLoss">0.063
-                        <small>inWg/100ft</small>
-                    </td>
-                </tr>-->
-
             </tbody>
         </table>
-    </main>
-</body>
-<div class="footer">
-    <p><td valign="top">Pressure drop calculations are based on Hazen–Williams equation. <br>Air Density=0.0751 lbm/ft3 standard air, Duct Roughness Factor=0.0003 ft for sheet metal and Air Dynamic Viscocity=0.018 cP.
 
-    </td>
-</p>
-    <a href="https://ductulator.com/metric/" style="color:yellow;">Go to Metric Version</a>
-    <br>
-    <p>&copy; 2017-
-        <script>document.write(/\d{4}/.exec(Date())[0])</script> Miro Zaroukian. All rights reserved.
-    </p>
-</div>
+    </main>
+
+    <footer class="footer">
+        <p>Pressure drop calculations are based on Hazen–Williams equation.<br>Air Density=0.0751 lbm/ft3 standard air,
+            Duct Roughness Factor=0.0003 ft for sheet metal and Air Dynamic Viscocity=0.018 cP.</p>
+        <a href="https://ductulator.com/metric/" style="color:yellow;">Go to Metric Version</a>
+        <p>&copy; 2017-
+            <script>document.write(/\d{4}/.exec(Date())[0])</script> Miro Zaroukian. All rights reserved.
+        </p>
+    </footer>
+</body>
 
 </html>

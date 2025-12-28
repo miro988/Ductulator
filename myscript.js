@@ -1,1 +1,250 @@
-﻿var _0xf9b9=["\x76\x61\x6C\x75\x65","\x43\x46\x4D","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x73\x42\x79\x4E\x61\x6D\x65","\x46\x50\x4D","\x69\x6E\x57\x67","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x74\x62\x6F\x64\x79","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x73\x42\x79\x54\x61\x67\x4E\x61\x6D\x65","\x4F\x75\x74\x70\x75\x74\x54\x61\x62\x6C\x65","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","","\x74\x72","\x63\x72\x65\x61\x74\x65\x45\x6C\x65\x6D\x65\x6E\x74","\x3C\x74\x64\x20\x72\x6F\x77\x73\x70\x61\x6E\x3D\x22\x32\x22\x20\x69\x64\x3D\x22\x52\x31\x43\x22\x3E\x3C\x2F\x74\x64\x3E\x3C\x74\x64\x20\x63\x6F\x6C\x73\x70\x61\x6E\x3D\x22\x35\x22\x3E\x3C\x73\x6D\x61\x6C\x6C\x3E\x52\x6F\x75\x6E\x64\x20\x64\x75\x63\x74\x3A\x3C\x2F\x73\x6D\x61\x6C\x6C\x3E\x3C\x2F\x74\x64\x3E","\x61\x70\x70\x65\x6E\x64\x43\x68\x69\x6C\x64","\x3C\x74\x64\x3E\x3C\x69\x6E\x70\x75\x74\x20\x74\x79\x70\x65\x3D\x22\x6E\x75\x6D\x62\x65\x72\x22\x20\x64\x69\x72\x3D\x22\x72\x74\x6C\x22\x20\x6E\x61\x6D\x65\x3D\x22\x4C\x64\x73\x69\x7A\x65\x22\x20\x69\x64\x3D\x30\x30\x20\x6D\x69\x6E\x3D\x22\x34\x22\x73\x74\x65\x70\x3D\x22\x32\x22\x20\x76\x61\x6C\x75\x65\x3D\x22","\x22\x20\x6F\x6E\x69\x6E\x70\x75\x74\x3D\x22\x43\x61\x6C\x63\x4D\x65\x52\x6E\x64\x28\x29\x22\x20\x72\x65\x71\x75\x69\x72\x65\x64\x3E\x22\xD8\x3C\x2F\x74\x64\x3E\x3C\x74\x64\x20\x63\x6C\x61\x73\x73\x3D\x22\x56\x65\x6C\x22\x20\x69\x64\x3D\x30\x31\x3E","\x20\x3C\x2F\x74\x64\x3E\x3C\x74\x64\x3E\x3C\x73\x6D\x61\x6C\x6C\x3E\x20\x46\x50\x4D\x3C\x2F\x73\x6D\x61\x6C\x6C\x3E\x3C\x2F\x74\x64\x3E\x3C\x74\x64\x20\x63\x6C\x61\x73\x73\x3D\x22\x53\x74\x4C\x6F\x73\x73\x22\x20\x69\x64\x3D\x30\x32\x3E","\x20\x3C\x2F\x74\x64\x3E\x3C\x74\x64\x3E\x3C\x73\x6D\x61\x6C\x6C\x3E\x69\x6E\x57\x67\x2F\x31\x30\x30\x66\x74\x3C\x2F\x73\x6D\x61\x6C\x6C\x3E\x3C\x2F\x74\x64\x3E","\x3C\x74\x64\x20\x72\x6F\x77\x73\x70\x61\x6E\x3D\x22","\x6C\x65\x6E\x67\x74\x68","\x22\x20\x69\x64\x3D\x22\x52\x32\x43\x22\x3E\x3C\x2F\x74\x64\x3E\x3C\x74\x64\x20\x63\x6F\x6C\x73\x70\x61\x6E\x3D\x22\x35\x22\x3E\x3C\x73\x6D\x61\x6C\x6C\x3E\x52\x65\x63\x74\x61\x6E\x67\x75\x6C\x61\x72\x20\x64\x75\x63\x74\x3A\x3C\x2F\x73\x6D\x61\x6C\x6C\x3E\x3C\x2F\x74\x64\x3E\x3C\x2F\x74\x72\x3E","\x3C\x74\x64\x3E\x3C\x69\x6E\x70\x75\x74\x20\x74\x79\x70\x65\x3D\x22\x6E\x75\x6D\x62\x65\x72\x22\x20\x64\x69\x72\x3D\x22\x72\x74\x6C\x22\x20\x6E\x61\x6D\x65\x3D\x22\x4C\x64\x73\x69\x7A\x65\x22\x20\x69\x64\x3D","\x30\x20\x73\x74\x65\x70\x3D\x22\x32\x22\x20\x6D\x69\x6E\x3D\x22\x34\x22\x20\x6D\x61\x78\x3D\x22\x35\x30\x30\x22\x20\x76\x61\x6C\x75\x65\x3D\x22","\x22\x20\x6F\x6E\x69\x6E\x70\x75\x74\x3D\x22\x43\x61\x6C\x63\x4D\x65\x52\x65\x63\x28","\x29\x3B\x22\x20\x72\x65\x71\x75\x69\x72\x65\x64\x3E\x22\x78\x3C\x69\x6E\x70\x75\x74\x20\x74\x79\x70\x65\x3D\x22\x6E\x75\x6D\x62\x65\x72\x22\x20\x6E\x61\x6D\x65\x3D\x22\x52\x64\x73\x69\x7A\x65\x22\x20\x69\x64\x3D","\x31\x20\x73\x74\x65\x70\x3D\x22\x32\x22\x20\x6D\x69\x6E\x3D\x22\x34\x22\x20\x6D\x61\x78\x3D\x22\x35\x30\x30\x22\x20\x76\x61\x6C\x75\x65\x3D\x22","\x29\x3B\x46\x69\x74\x41\x61\x70\x6F\x73\x74\x72\x6F\x70\x68\x65\x28","\x31\x29\x22\x20\x69\x64\x3D","\x31\x20\x72\x65\x71\x75\x69\x72\x65\x64\x3E\x3C\x73\x70\x61\x6E\x20\x69\x64\x3D\x69\x6E\x63\x68\x53\x70\x61\x6E\x20\x63\x6C\x61\x73\x73\x3D\x22\x69\x6E\x63\x68\x53\x70\x61\x6E\x22\x3E\x22\x3C\x2F\x73\x70\x61\x6E\x3E\x3C\x2F\x74\x64\x3E\x3C\x74\x64\x20\x63\x6C\x61\x73\x73\x3D\x22\x56\x65\x6C\x22\x20\x69\x64\x3D","\x32\x3E","\x3C\x2F\x74\x64\x3E\x3C\x74\x64\x3E\x3C\x73\x6D\x61\x6C\x6C\x3E\x46\x50\x4D\x3C\x2F\x73\x6D\x61\x6C\x6C\x3E\x3C\x2F\x74\x64\x3E\x3C\x2F\x74\x64\x3E\x3C\x74\x64\x20\x63\x6C\x61\x73\x73\x3D\x22\x53\x74\x4C\x6F\x73\x73\x22\x20\x69\x64\x3D","\x33\x3E","\x20\x3C\x2F\x74\x64\x3E\x3C\x74\x64\x3E\x3C\x73\x6D\x61\x6C\x6C\x3E\x69\x6E\x57\x67\x2F\x31\x30\x30\x66\x74\x3C\x2F\x73\x6D\x61\x6C\x6C\x3E\x3C\x2F\x74\x64\x3E\x3C\x2F\x74\x64\x3E","\x31","\x3C\x74\x64\x20\x72\x6F\x77\x73\x70\x61\x6E\x3D\x22\x32\x22\x20\x69\x64\x3D\x22\x52\x31\x43\x22\x3E\x3C\x2F\x74\x64\x3E\x3C\x74\x64\x20\x63\x6F\x6C\x73\x70\x61\x6E\x3D\x22\x34\x22\x3E\x3C\x73\x6D\x61\x6C\x6C\x3E\x49\x6E\x70\x75\x74\x20\x76\x61\x6C\x75\x65\x28\x73\x29\x20\x61\x72\x65\x20\x6F\x75\x74\x20\x6F\x66\x20\x72\x61\x6E\x67\x65\x2E\x3C\x62\x72\x3E\x41\x63\x63\x65\x70\x74\x61\x62\x6C\x65\x20\x72\x61\x6E\x67\x65\x20\x6F\x66\x20\x76\x61\x6C\x75\x65\x73\x20\x61\x72\x65\x3A\x3C\x62\x72\x3E\x32\x35\x26\x6C\x74\x43\x46\x4D\x26\x6C\x74\x32\x30\x2C\x30\x30\x30\x3C\x62\x72\x3E\x34\x35\x26\x6C\x74\x46\x50\x4D\x26\x6C\x74\x33\x2C\x32\x30\x30\x3C\x62\x72\x3E\x30\x2E\x30\x34\x26\x6C\x74\x49\x6E\x57\x67\x26\x6C\x74\x32\x2E\x30\x3C\x2F\x73\x6D\x61\x6C\x6C\x3E\x3C\x2F\x74\x64\x3E","\x75\x6E\x73\x68\x69\x66\x74","\x6B\x65\x79\x43\x6F\x64\x65","\x50\x6C\x65\x61\x73\x65\x20\x65\x6E\x74\x65\x72\x20\x6D\x61\x74\x68\x20\x65\x78\x70\x72\x65\x73\x73\x69\x6F\x6E","\x44\x4F\x4D\x43\x6F\x6E\x74\x65\x6E\x74\x4C\x6F\x61\x64\x65\x64","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72"];function KeyPressed(){var _0x5bf9x2=document[_0xf9b9[2]](_0xf9b9[1])[0][_0xf9b9[0]],_0x5bf9x3=document[_0xf9b9[2]](_0xf9b9[3])[0][_0xf9b9[0]],_0x5bf9x4=document[_0xf9b9[2]](_0xf9b9[4])[0][_0xf9b9[0]];if(_0x5bf9x2> 25&& _0x5bf9x2<= 2e4&& _0x5bf9x3> 45&& _0x5bf9x3<= 3200&& _0x5bf9x4> 0.04&& _0x5bf9x4<= 2){arr= calc(_0x5bf9x2,_0x5bf9x3,_0x5bf9x4),(_0x5bf9x6= document[_0xf9b9[9]](_0xf9b9[8])[_0xf9b9[7]](_0xf9b9[6])[0])[_0xf9b9[5]]= _0xf9b9[10],(_0x5bf9x7= document[_0xf9b9[12]](_0xf9b9[11]))[_0xf9b9[5]]= _0xf9b9[13],_0x5bf9x6[_0xf9b9[14]](_0x5bf9x7),(_0x5bf9x7= document[_0xf9b9[12]](_0xf9b9[11]))[_0xf9b9[5]]= _0xf9b9[15]+ arr[0][0]+ _0xf9b9[16]+ arr[0][1]+ _0xf9b9[17]+ arr[0][2]+ _0xf9b9[18],_0x5bf9x6[_0xf9b9[14]](_0x5bf9x7),(_0x5bf9x7= document[_0xf9b9[12]](_0xf9b9[11]))[_0xf9b9[5]]= _0xf9b9[19]+ arr[_0xf9b9[20]]+ _0xf9b9[21],_0x5bf9x6[_0xf9b9[14]](_0x5bf9x7);for(var _0x5bf9x5=1;_0x5bf9x5< arr[_0xf9b9[20]];++_0x5bf9x5){(_0x5bf9x7= document[_0xf9b9[12]](_0xf9b9[11]))[_0xf9b9[5]]= _0xf9b9[22]+ _0x5bf9x5+ _0xf9b9[23]+ arr[_0x5bf9x5][0]+ _0xf9b9[24]+ _0x5bf9x5+ _0xf9b9[25]+ _0x5bf9x5+ _0xf9b9[26]+ arr[_0x5bf9x5][1]+ _0xf9b9[24]+ _0x5bf9x5+ _0xf9b9[27]+ _0x5bf9x5+ _0xf9b9[28]+ _0x5bf9x5+ _0xf9b9[29]+ _0x5bf9x5+ _0xf9b9[30]+ arr[_0x5bf9x5][2]+ _0xf9b9[31]+ _0x5bf9x5+ _0xf9b9[32]+ arr[_0x5bf9x5][3]+ _0xf9b9[33],_0x5bf9x6[_0xf9b9[14]](_0x5bf9x7),FitAapostrophe(_0x5bf9x5+ _0xf9b9[34])}}else {var _0x5bf9x6,_0x5bf9x7;(_0x5bf9x6= document[_0xf9b9[9]](_0xf9b9[8])[_0xf9b9[7]](_0xf9b9[6])[0])[_0xf9b9[5]]= _0xf9b9[10],(_0x5bf9x7= document[_0xf9b9[12]](_0xf9b9[11]))[_0xf9b9[5]]= _0xf9b9[35],_0x5bf9x6[_0xf9b9[14]](_0x5bf9x7)}}function calc(_0x5bf9x2,_0x5bf9x3,_0x5bf9x4){var _0x5bf9x5=ReturnRndDuctArray(_0x5bf9x2,_0x5bf9x3,_0x5bf9x4,[2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,34,38,40,42,46,48,50,54,60,66,70,72,76,80,90,100]),_0x5bf9x6=ReturnRecDuctArray(_0x5bf9x2,_0x5bf9x3,_0x5bf9x4,[4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,46,50,52,54,60,66,70,72,76,80,90,100],[4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,46,50,52,54,60,66,70,72,76,80,90,100],_0x5bf9x5[0],5);return _0x5bf9x6[_0xf9b9[36]]([_0x5bf9x5[0],_0x5bf9x5[1],_0x5bf9x5[2],0]),_0x5bf9x6}function DoMath(_0x5bf9xa){if(13=== _0x5bf9xa[_0xf9b9[37]]){var _0x5bf9xb=prompt(_0xf9b9[38],_0xf9b9[10]);null!= _0x5bf9xb&& (document[_0xf9b9[9]](_0xf9b9[1])[_0xf9b9[0]]= eval(_0x5bf9xb))};KeyPressed()}document[_0xf9b9[40]](_0xf9b9[39],function(){document[_0xf9b9[2]](_0xf9b9[1])[0][_0xf9b9[0]]= 800,document[_0xf9b9[2]](_0xf9b9[3])[0][_0xf9b9[0]]= 800,document[_0xf9b9[2]](_0xf9b9[4])[0][_0xf9b9[0]]= 0.08,KeyPressed()},!1)
+"use strict";
+
+// Core sizing helpers (formerly ductscript.js)
+let PrevInputBoxID = 10;
+
+function ReturnRndDuctArray(CFM, MaxVel, MaxStatic, RndDuctArray) {
+  for (let i = 0; i < RndDuctArray.length; i++) {
+    const v = CalcRndDuctVelocity(RndDuctArray[i], CFM);
+    const st = CalcRndDuctStatic(RndDuctArray[i], v, 0.018, 0.0751, 0.0003);
+    if ((st <= MaxStatic && v <= MaxVel) || i > 1e10) {
+      return [RndDuctArray[i], v.toFixed(0), st];
+    }
+  }
+  return [RndDuctArray[RndDuctArray.length - 1], 0, 0];
+}
+
+function CalcRndDuctVelocity(Diameter, CFM) {
+  return (CFM * 144) / ((Math.PI * Diameter * Diameter) / 4);
+}
+
+function CalcRndDuctStatic(Dh, V, e, Density, DuctRo) {
+  const kinematicViscosity = (e * 30.48) / (100 * 453.592 * Density); // [ft2/s]
+  const Re = (V * Dh) / (kinematicViscosity * 720);
+  const fprime = 0.11 * Math.pow((DuctRo * 12) / Dh + 68 / Re, 0.25);
+  const f = fprime >= 0.018 ? fprime : 0.85 * fprime + 0.0028;
+  const DeltaP = (12 * f * 0.0751 * 100 * Math.pow(V / 1097.238146, 2)) / Dh;
+  return DeltaP.toFixed(3);
+}
+
+function ReturnRecDuctArray(CFM, MaxVel, MaxStatic, WidthArray, HeightArray, ExRndDuct, Ratio) {
+  let i = 0;
+  while (i < WidthArray.length && WidthArray[i] < ExRndDuct) i += 1;
+  WidthArray = WidthArray.splice(Math.max(i - 1, 0), WidthArray.length);
+
+  i = 0;
+  while (i < HeightArray.length && HeightArray[i] < ExRndDuct) i += 1;
+  // HeightArray is intentionally untrimmed as in original logic
+
+  const RectDucts = [];
+  for (let w = 0; w < WidthArray.length; w++) {
+    for (let h = 0; h < HeightArray.length; h++) {
+      const v = (CFM * 144) / (WidthArray[w] * HeightArray[h]);
+      const Dh = (2 * WidthArray[w] * HeightArray[h]) / (WidthArray[w] + HeightArray[h]);
+      const st = CalcRndDuctStatic(Dh, v, 0.0003, 0.0751, 0.0003);
+      if (v <= MaxVel && st <= MaxStatic && WidthArray[w] / HeightArray[h] < Ratio) {
+        RectDucts.push([WidthArray[w], HeightArray[h], v.toFixed(0), st]);
+        HeightArray.splice(h, HeightArray.length);
+        WidthArray.splice(0, w - 1);
+        break;
+      }
+    }
+  }
+  return RectDucts;
+}
+
+function CalcMeRnd() {
+  const diameter = document.getElementById("00").value;
+  const cfm = document.getElementsByName("CFM")[0].value;
+  const velocity = (576 * cfm) / (Math.PI * diameter * diameter);
+  document.getElementById("01").innerHTML = velocity.toFixed(0);
+  const staticLoss = CalcRndDuctStatic(diameter, velocity, 0.0003, 0.0751, 0.0003);
+  document.getElementById("02").innerHTML = staticLoss;
+  document.getElementById(PrevInputBoxID).style.textDecoration = "initial";
+  document.activeElement.style.textDecoration = "underline";
+  PrevInputBoxID = document.activeElement.id;
+}
+
+function CalcMeRec(row) {
+  const cfm = document.getElementsByName("CFM")[0].value;
+  const widthInput = document.getElementById(`${row}0`);
+  const heightInput = document.getElementById(`${row}1`);
+  if (!widthInput || !heightInput) return;
+
+  const width = Number(widthInput.value);
+  const height = Number(heightInput.value);
+  const velocity = (144 * cfm) / (width * height);
+  const Dh = (2 * width * height) / (width + height);
+  document.getElementById(`${row}2`).innerHTML = velocity.toFixed(0);
+  const staticLoss = CalcRndDuctStatic(Dh, velocity, 0.0003, 0.0751, 0.0003);
+  document.getElementById(`${row}3`).innerHTML = staticLoss;
+
+  document.getElementById(PrevInputBoxID).style.textDecoration = "initial";
+  document.activeElement.style.textDecoration = "underline";
+  PrevInputBoxID = document.activeElement.id;
+}
+
+function FitAapostrophe(id) {
+  const input = document.getElementById(id);
+  if (!input) return;
+  const n = input.value.length / 2 - 3;
+  const spanIndex = (Number(id) - 11) / 10;
+  const inchSpan = document.getElementsByClassName("inchSpan")[spanIndex];
+  if (inchSpan) {
+    inchSpan.setAttribute("style", "margin-left: " + n + "em;");
+  }
+}
+
+// UI + rendering (formerly myscript.js)
+const roundDuctSizes = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 34, 38, 40, 42, 46, 48, 50, 54, 60, 66, 70, 72, 76, 80, 90, 100];
+const rectDuctWidths = [4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 46, 50, 52, 54, 60, 66, 70, 72, 76, 80, 90, 100];
+const rectDuctHeights = rectDuctWidths.slice(); // same set
+const maxAspectRatio = 5;
+
+function getNumericInput(name) {
+  const el = document.getElementsByName(name)[0];
+  return { value: Number(el.value), el };
+}
+
+function computeDuctOptions(cfm, maxVelocity, maxStaticLoss) {
+  const round = ReturnRndDuctArray(cfm, maxVelocity, maxStaticLoss, roundDuctSizes);
+  const rectangular = ReturnRecDuctArray(
+    cfm,
+    maxVelocity,
+    maxStaticLoss,
+    rectDuctWidths.slice(),
+    rectDuctHeights.slice(),
+    round[0],
+    maxAspectRatio
+  );
+
+  const options = [
+    {
+      type: "round",
+      diameter: round[0],
+      velocity: round[1],
+      staticLoss: round[2],
+    },
+  ];
+
+  rectangular.forEach((item) => {
+    options.push({
+      type: "rect",
+      width: item[0],
+      height: item[1],
+      velocity: item[2],
+      staticLoss: item[3],
+    });
+  });
+
+  return options;
+}
+
+function renderOutput(options) {
+  const tbody = document.getElementById("OutputTable").getElementsByTagName("tbody")[0];
+  tbody.innerHTML = "";
+
+  const fragment = document.createDocumentFragment();
+
+  // Round header
+  const roundHeading = document.createElement("tr");
+  roundHeading.innerHTML = `<td rowspan="2" id="R1C"></td><td colspan="5"><small id="HeadText">Round duct:</small></td>`;
+  fragment.appendChild(roundHeading);
+
+  // Round row
+  const round = options.find((item) => item.type === "round");
+  if (round) {
+    const roundRow = document.createElement("tr");
+    roundRow.innerHTML = `<td class="size-cell"><input type="number" dir="rtl" name="Ldsize" id="00" min="4" step="2" value="${round.diameter}" oninput="CalcMeRnd()" required>"Ø</td>
+        <td class="Vel" id="01">${round.velocity}</td>
+        <td><small>FPM</small></td>
+        <td class="StLoss" id="02">${round.staticLoss}</td>
+        <td><small>inWg/100ft</small></td>`;
+    fragment.appendChild(roundRow);
+  }
+
+  // Rectangular header
+  const rectOptions = options.filter((item) => item.type === "rect");
+  const rectRowSpan = Math.max(rectOptions.length + 1, 2);
+  const rectHeading = document.createElement("tr");
+  rectHeading.innerHTML = `<td rowspan="${rectRowSpan}" id="R2C"></td><td colspan="5"><small>Rectangular duct:</small></td>`;
+  fragment.appendChild(rectHeading);
+
+  // Rectangular rows
+  let rowIndex = 1;
+  const inchSpanIds = [];
+  rectOptions.forEach((item) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `<td class="size-cell"><input type="number" dir="rtl" name="Ldsize" id="${rowIndex}0" step="2" min="4" value="${item.width}"
+                oninput="CalcMeRec(${rowIndex})" required>"x
+            <input type="number" name="Rdsize" step="2" min="4" value="${item.height}" oninput="CalcMeRec(${rowIndex})" id="${rowIndex}1"
+                required><span class="inchSpan">"</span>
+        </td>
+        <td class="Vel" id="${rowIndex}2">${item.velocity}</td>
+        <td><small>FPM</small></td>
+        <td class="StLoss" id="${rowIndex}3">${item.staticLoss}</td>
+        <td><small>inWg/100ft</small></td>`;
+      fragment.appendChild(row);
+      inchSpanIds.push(`${rowIndex}1`);
+      rowIndex += 1;
+    });
+
+  tbody.appendChild(fragment);
+
+  inchSpanIds.forEach((id) => FitAapostrophe(id));
+}
+
+function showInputError(message) {
+  const tbody = document.getElementById("OutputTable").getElementsByTagName("tbody")[0];
+  tbody.innerHTML = `<tr><td colspan="6">${message}</td></tr>`;
+}
+
+function inputsAreValid(cfm, maxVelocity, maxStaticLoss) {
+  return (
+    cfm > 25 &&
+    cfm <= 20000 &&
+    maxVelocity > 45 &&
+    maxVelocity <= 3200 &&
+    maxStaticLoss > 0.04 &&
+    maxStaticLoss <= 2
+  );
+}
+
+function KeyPressed() {
+  const { value: cfm } = getNumericInput("CFM");
+  const { value: fpm } = getNumericInput("FPM");
+  const { value: staticLoss } = getNumericInput("inWg");
+
+  if (!inputsAreValid(cfm, fpm, staticLoss)) {
+    showInputError("Please enter values within the allowed ranges to see results.");
+    return;
+  }
+
+  const options = computeDuctOptions(cfm, fpm, staticLoss);
+  renderOutput(options);
+}
+
+function DoMath(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    KeyPressed();
+  }
+}
+
+document.addEventListener("DOMContentLoaded", KeyPressed, false);
+
+function stepInput(id, delta) {
+  const input = document.getElementById(id);
+  if (!input) return;
+  const min = Number(input.min);
+  const max = Number(input.max);
+  const step = Number(input.step) || delta;
+  const current = Number(input.value) || 0;
+  let next = current + delta;
+  if (step) {
+    next = Math.round(next / step) * step;
+  }
+  next = Math.max(min, Math.min(max, next));
+  input.value = next;
+  KeyPressed();
+}
