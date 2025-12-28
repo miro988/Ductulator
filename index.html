@@ -43,9 +43,9 @@
             <input type="number" name="CFM" id="CFM" min="50" max="50000" step="50" value="800" inputmode="decimal"
                 oninput="KeyPressed()" onkeydown="DoMath(event)" required autofocus>
             <div class="stepper">
-                <button type="button" class="step-btn step-btn--up" aria-label="Increase airflow"
+                <button type="button" class="step-btn input-spinner step-btn--up" aria-label="Increase airflow"
                     onclick="stepInput('CFM', 50)">▲</button>
-                <button type="button" class="step-btn step-btn--down" aria-label="Decrease airflow"
+                <button type="button" class="step-btn input-spinner step-btn--down" aria-label="Decrease airflow"
                     onclick="stepInput('CFM', -50)">▼</button>
             </div>
             <span class="unit-label">CFM</span>
@@ -57,9 +57,9 @@
             <input type="number" name="FPM" id="FPM" min="50" max="3200" step="50" value="800" inputmode="decimal"
                 oninput="KeyPressed()" required>
             <div class="stepper">
-                <button type="button" class="step-btn step-btn--up" aria-label="Increase air velocity"
+                <button type="button" class="step-btn input-spinner step-btn--up" aria-label="Increase air velocity"
                     onclick="stepInput('FPM', 50)">▲</button>
-                <button type="button" class="step-btn step-btn--down" aria-label="Decrease air velocity"
+                <button type="button" class="step-btn input-spinner step-btn--down" aria-label="Decrease air velocity"
                     onclick="stepInput('FPM', -50)">▼</button>
             </div>
             <span class="unit-label">FPM</span>
@@ -71,9 +71,9 @@
             <input type="number" name="inWg" id="inWg" min="0.06" max="2.0" step="0.02" value="0.08" inputmode="decimal"
                 oninput="KeyPressed()" required>
             <div class="stepper">
-                <button type="button" class="step-btn step-btn--up" aria-label="Increase static loss"
+                <button type="button" class="step-btn input-spinner step-btn--up" aria-label="Increase static loss"
                     onclick="stepInput('inWg', 0.02)">▲</button>
-                <button type="button" class="step-btn step-btn--down" aria-label="Decrease static loss"
+                <button type="button" class="step-btn input-spinner step-btn--down" aria-label="Decrease static loss"
                     onclick="stepInput('inWg', -0.02)">▼</button>
             </div>
             <span class="unit-label">InWg</span>

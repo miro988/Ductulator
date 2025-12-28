@@ -66,7 +66,7 @@ header {
 }
 
 input[type=number] {
-    width: 3.5em;
+    width: 2.8em;
     padding: 2px 2px;
     border-radius: 6px 0px 0px 6px;
     border: none;
@@ -81,7 +81,7 @@ input[name=Rdsize] {
     width: 3em;
     text-align: left;
     background-color: transparent;
-    padding: 0 2px;
+    padding: 0 0px;
 }
 
 input[name=Ldsize] {
@@ -140,9 +140,9 @@ input[type=number]::-webkit-inner-spin-button {
 
 .step-btn {
     border: 0px solid #ccc;
-    background: #ffffff;
+    background: #f2f3f1;
     border-radius: 0;
-    width: 20px;
+    width: 18px;
     flex: 1;
     min-height: 10px;
     line-height: 1;
@@ -163,6 +163,23 @@ input[type=number]::-webkit-inner-spin-button {
 
 .step-btn:last-child {
     border-bottom-right-radius: 6px;
+}
+
+/* Specific spinner styling for left-panel inputs */
+.step-btn.input-spinner {
+    background: #ffffff;
+    /* match input bg */
+    border: 0px solid #e6e6e6;
+    color: #ababab;
+}
+
+/* Specific spinner styling for table/result spinners */
+.step-btn.table-spinner {
+    background: transparent;
+    border: none;
+    color: #666;
+    width: 16px;
+    padding: 0 2px;
 }
 
 .unit-label {
@@ -352,6 +369,27 @@ td {
 
 a {
     color: #fff
+}
+
+.size-spinner {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+}
+
+.size-input {
+    width: 1.6em;
+    /* adjust as needed */
+    margin: 0;
+    padding: 2px 0.15em;
+    /* reduce horizontal padding */
+    box-sizing: border-box;
+}
+
+.size-unit {
+    margin: 0;
+    padding-left: 0.15em;
+    /* small separation if desired */
 }
 
 @media only screen and (max-width:600px) {
