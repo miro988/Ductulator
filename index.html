@@ -79,37 +79,7 @@
             <span class="unit-label">InWg</span>
         </div>
 
-        <table class="R1-1" id="OutputTable">
-            <tbody>
-                <tr>
-                    <td rowspan="2" id="R1C"></td>
-                    <td colspan="5"><small id="HeadText">Round duct:</small></td>
-                </tr>
-                <tr>
-                    <td class="size-cell"><input type="number" dir="rtl" name="Ldsize" id="00" min="4" step="2"
-                            value="8" oninput="CalcMeRnd()" required>"Ø</td>
-                    <td class="Vel" id="01">573</td>
-                    <td><small>FPM</small></td>
-                    <td class="StLoss" id="02">0.073</td>
-                    <td><small>inWg/100ft</small></td>
-                </tr>
-                <tr>
-                    <td rowspan="4" id="R2C"></td>
-                    <td colspan="5"><small>Rectangular duct:</small></td>
-                </tr>
-                <tr>
-                    <td class="size-cell"><input type="number" dir="rtl" name="Ldsize" id="10" step="2" min="4"
-                            value="8" oninput="CalcMeRec(1)" required>"x
-                        <input type="number" name="Rdsize" step="2" min="4" value="8" oninput="CalcMeRec(1)" id="11"
-                            required><span class="inchSpan">"</span>
-                    </td>
-                    <td class="Vel" id="12">4500</td>
-                    <td><small>FPM</small></td>
-                    <td class="StLoss" id="13">0.047</td>
-                    <td><small>inWg/100ft</small></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="result-grid" id="OutputGrid"></div>
 
     </main>
 

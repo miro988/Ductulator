@@ -47,7 +47,7 @@ header {
             max-width: 50em;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: auto 6px 12px 9.8em 20.5em 16px auto;
+            grid-template-columns: auto 6px 12px 9.8em 22em 6px auto;
             grid-template-rows: 20px repeat(3, auto auto) auto;
             grid-template-areas: " . . . . . . . " ". . L1-1 L1-2 R1-1  . ." ". . L1-1 L1-3 R1-1  . ." ". . L2-1 L2-2 R1-1  . ." ". . L2-1 L2-3 R1-1  . ." ". . L3-1 L3-2 R1-1  . ." ". . L3-1 L3-3 R1-1  . ." ". . L4-1 L4-1 R1-1  . ."
         }
@@ -58,7 +58,7 @@ header {
             max-width: 50em;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: auto 6px 12px minmax(8em, 1fr) 8px auto;
+            grid-template-columns: auto 6px 12px 9.8em 10em 6px auto;
             grid-template-rows: 20px repeat(3, auto auto) auto;
             grid-template-areas: " . . . . . . . " ". . L1-1 L1-2 .  . ." ". . L1-1 L1-3 .  . ." ". . L2-1 L2-2 .  . ." ". . L2-1 L2-3 .  . ." ". . L3-1 L3-2 .  . ." ". . L3-1 L3-3 .  . ." ". . R1-1 R1-1 R1-1  R1-1 ."
         }
@@ -85,7 +85,7 @@ input[name=Rdsize] {
 }
 
 input[name=Ldsize] {
-    width: 2.5em;
+    width: 1.5em;
     text-align: right;
     background-color: transparent;
     padding: 0 0px;
@@ -126,7 +126,7 @@ input[type=number]::-webkit-inner-spin-button {
 .step-group input[type=number] {
 
     max-width: 5em;
-    height: 34px;
+    height: 28px;
     font-size: 1.15em;
     text-align: right;
     border-radius: 6px 0 0 6px;
@@ -136,7 +136,7 @@ input[type=number]::-webkit-inner-spin-button {
     display: flex;
     flex-direction: column;
     justify-content: stretch;
-    height: 34px;
+    height: 28px;
 }
 
 .step-btn {
@@ -181,7 +181,7 @@ input[type=number]::-webkit-inner-spin-button {
     color: #666;
     width: 25px;
     padding: 0 2px;
-    padding-left: 15px;
+    padding-left: 5px;
 }
 
 .unit-label {
@@ -273,84 +273,90 @@ input[type=number]::-webkit-inner-spin-button {
     font-size: 1.2em
 }
 
-table.R1-1 {
+.result-grid {
     grid-area: R1-1;
     font-size: 1.2em;
-    border-spacing: 0 4px;
-    table-layout: auto;
+    display: grid;
+    row-gap: 10px;
     width: calc(100% - 10px);
     max-width: calc(100% - 10px);
 }
 
-table.R1-1 td {
-    padding: 3px 2px;
-    vertical-align: middle;
-    box-sizing: border-box;
+.result-block {
+    display: grid;
+    grid-template-columns: 5px 1fr;
+    column-gap: 5px;
+    align-items: stretch;
 }
 
-table.R1-1 td:first-child {
-    width: 9.5em;
-    white-space: nowrap;
+.result-bar {
+    width: 5px;
+    border-radius: 2px;
+}
+
+.result-block--round .result-bar {
+    background-color: green;
+}
+
+.result-block--rect .result-bar {
+    background-color: #90ee90;
+}
+
+.result-rows {
+    display: grid;
+    grid-template-columns: minmax(1.0em, 1fr) 1.5em max-content 2.5em 2em;
+    column-gap: 0;
+    row-gap: 4px;
+    align-items: center;
+    grid-auto-rows: 30px;
+}
+
+.result-heading {
+    grid-column: 1 / -1;
+    padding: 3px 2px 3px 12px;
+    border-bottom: 1px solid #ece5e5;
+}
+
+.result-row {
+    display: contents;
+}
+
+.result-cell {
+    padding: 3px 7px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ece5e5;
+    height: 30px;
+}
+
+.unit-cell {
+    justify-self: stretch;
+    text-align: left;
+}
+
+.result-row:hover .result-cell {
+    background-color: #f5f5f5;
+}
+
+.result-cell.Vel,
+.result-cell.StLoss {
+    text-align: right;
+}
+
+.Vel,
+.StLoss {
+    text-align: right;
+}
+
+.result-error {
+    padding: 6px 8px;
 }
 
 small {
     font-size: .6em
 }
 
-table.R1-1 td small {
-    display: inline-block;
-    margin-right: 8px;
-}
-
-table.R1-1 td[colspan="5"]>small {
-    display: inline-block;
-    padding-left: 12px;
-}
-
-#R1C,
-#R2C {
-    width: 5px;
-    min-width: 5px;
-    max-width: 5px;
-    padding: 0;
-    box-sizing: border-box;
-    position: relative;
-    background: transparent;
-}
-
-#R1C::before,
-#R2C::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 5px;
-    /* shift from cell left edge to align with left bars */
-    width: 5px;
-    /* thickness of the colored bar */
-}
-
-#R1C::before {
-    background-color: green;
-}
-
-#R2C::before {
-    background-color: #90ee90;
-}
-
-tr:hover {
-    background-color: #f5f5f5
-}
-
-.StLoss,
-.Vel {
-    text-align: right
-}
-
-td {
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-bottom-color: #ece5e5
+.size-sep {
+    margin-right: 0.15em;
 }
 
 .footer {
@@ -365,8 +371,22 @@ td {
     background-color: #223C68
 }
 
+.size-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+    white-space: nowrap;
+}
+
 .inchSpan {
-    position: absolute
+    position: static;
+    margin-left: 0;
+}
+
+.inch-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
 }
 
 a {
@@ -379,12 +399,17 @@ a {
     gap: 0;
 }
 
+.size-spinner .stepper {
+    margin: 0;
+}
+
 .size-input {
     /* adjust as needed */
     margin: 0;
     padding: 2px 0.15em;
     /* reduce horizontal padding */
     box-sizing: border-box;
+    height: 28px;
 }
 
 .size-unit {
@@ -415,12 +440,13 @@ a {
         font-size: 15px;
     }
 
-    table.R1-1 {
+    .result-grid {
         font-size: 1.15em;
-        border-spacing: 0 2px;
+        row-gap: 6px;
     }
 
-    table.R1-1 td {
+    .result-cell,
+    .result-heading {
         padding: 5px 4px;
     }
 }

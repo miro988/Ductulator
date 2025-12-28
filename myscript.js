@@ -84,17 +84,6 @@ function CalcMeRec(row) {
   PrevInputBoxID = document.activeElement.id;
 }
 
-function FitAapostrophe(id) {
-  const input = document.getElementById(id);
-  if (!input) return;
-  const n = input.value.length / 2 - 3;
-  const spanIndex = (Number(id) - 11) / 10;
-  const inchSpan = document.getElementsByClassName("inchSpan")[spanIndex];
-  if (inchSpan) {
-    inchSpan.setAttribute("style", "margin-left: " + n + "em;");
-  }
-}
-
 // UI + rendering (formerly myscript.js)
 const roundDuctSizes = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 34, 38, 40, 42, 46, 48, 50, 54, 60, 66, 70, 72, 76, 80, 90, 100];
 const rectDuctWidths = [4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 46, 50, 52, 54, 60, 66, 70, 72, 76, 80, 90, 100];
@@ -141,58 +130,85 @@ function computeDuctOptions(cfm, maxVelocity, maxStaticLoss) {
 }
 
 function renderOutput(options) {
-  const tbody = document.getElementById("OutputTable").getElementsByTagName("tbody")[0];
-  tbody.innerHTML = "";
+  const output = document.getElementById("OutputGrid");
+  output.innerHTML = "";
 
   const fragment = document.createDocumentFragment();
 
-  // Round header
-  const roundHeading = document.createElement("tr");
-  roundHeading.innerHTML = `<td rowspan="2" id="R1C"></td><td colspan="5"><small id="HeadText">Round duct:</small></td>`;
-  fragment.appendChild(roundHeading);
+  const createCell = (className, html) => {
+    const cell = document.createElement("div");
+    cell.className = `result-cell ${className}`.trim();
+    cell.innerHTML = html;
+    return cell;
+  };
 
-  // Round row
+  const createRow = (cells) => {
+    const row = document.createElement("div");
+    row.className = "result-row";
+    cells.forEach((cell) => row.appendChild(cell));
+    return row;
+  };
+
+  const createBlock = (type, headingText, rows) => {
+    const block = document.createElement("div");
+    block.className = `result-block result-block--${type}`;
+
+    const bar = document.createElement("div");
+    bar.className = "result-bar";
+    block.appendChild(bar);
+
+    const rowsWrapper = document.createElement("div");
+    rowsWrapper.className = "result-rows";
+    const heading = document.createElement("div");
+    heading.className = "result-heading";
+    heading.innerHTML = `<small>${headingText}</small>`;
+    rowsWrapper.appendChild(heading);
+
+    rows.forEach((row) => rowsWrapper.appendChild(row));
+    block.appendChild(rowsWrapper);
+    return block;
+  };
+
+  // Round block
   const round = options.find((item) => item.type === "round");
   if (round) {
-    const roundRow = document.createElement("tr");
-    roundRow.innerHTML = `<td class="size-cell"><div class="size-spinner size-spinner--left"><div class="stepper size-stepper"><button type="button" class="step-btn size-stepbtn table-spinner step-btn--up" aria-label="Increase round duct size" onclick="stepRoundSize(2)">▲</button><button type="button" class="step-btn size-stepbtn table-spinner step-btn--down" aria-label="Decrease round duct size" onclick="stepRoundSize(-2)">▼</button></div><input class="size-input" type="number" dir="rtl" name="Ldsize" id="00" min="4" step="2" value="${round.diameter}" oninput="CalcMeRnd()" required><span class="size-unit">"Ø</span></div></td>
-        <td class="Vel" id="01">${round.velocity}</td>
-        <td><small>FPM</small></td>
-        <td class="StLoss" id="02">${round.staticLoss}</td>
-        <td><small>inWg/100ft</small></td>`;
-    fragment.appendChild(roundRow);
+    const roundSize = `<div class="size-spinner size-spinner--left"><div class="stepper size-stepper"><button type="button" class="step-btn size-stepbtn table-spinner step-btn--up" aria-label="Increase round duct size" onclick="stepRoundSize(2)">▲</button><button type="button" class="step-btn size-stepbtn table-spinner step-btn--down" aria-label="Decrease round duct size" onclick="stepRoundSize(-2)">▼</button></div><input class="size-input" type="number" dir="rtl" name="Ldsize" id="00" min="4" step="2" value="${round.diameter}" oninput="CalcMeRnd()" required><span class="size-unit">"Ø</span></div>`;
+    const roundRow = createRow([
+      createCell("size-cell", roundSize),
+      createCell("Vel", `<div class="Vel" id="01">${round.velocity}</div>`),
+      createCell("unit-cell", "<small>FPM</small>"),
+      createCell("StLoss", `<div class="StLoss" id="02">${round.staticLoss}</div>`),
+      createCell("unit-cell", "<small>inWg/100ft</small>"),
+    ]);
+    fragment.appendChild(createBlock("round", "Round duct:", [roundRow]));
   }
 
-  // Rectangular header
+  // Rectangular block
   const rectOptions = options.filter((item) => item.type === "rect");
-  const rectRowSpan = Math.max(rectOptions.length + 1, 2);
-  const rectHeading = document.createElement("tr");
-  rectHeading.innerHTML = `<td rowspan="${rectRowSpan}" id="R2C"></td><td colspan="5"><small>Rectangular duct:</small></td>`;
-  fragment.appendChild(rectHeading);
-
-  // Rectangular rows
+  const rectRows = [];
   let rowIndex = 1;
-  const inchSpanIds = [];
   rectOptions.forEach((item) => {
-    const row = document.createElement("tr");
-    row.innerHTML = `<td class="size-cell"><div class="size-spinner size-spinner--left"><div class="stepper size-stepper"><button type="button" class="step-btn size-stepbtn table-spinner step-btn--up" aria-label="Increase rectangular width" onclick="stepRectWidth(${rowIndex}, 2)">▲</button><button type="button" class="step-btn size-stepbtn table-spinner step-btn--down" aria-label="Decrease rectangular width" onclick="stepRectWidth(${rowIndex}, -2)">▼</button></div><input class="size-input" type="number" dir="rtl" name="Ldsize" id="${rowIndex}0" step="2" min="4" value="${item.width}" oninput="CalcMeRec(${rowIndex})" required></div>"x <input class="size-input" type="number" name="Rdsize" step="2" min="4" value="${item.height}" oninput="CalcMeRec(${rowIndex})" id="${rowIndex}1" required> <div class="size-spinner size-spinner--right"><div class="stepper size-stepper"><button type="button" class="step-btn size-stepbtn table-spinner step-btn--up" aria-label="Increase rectangular height" onclick="stepRectHeight(${rowIndex}, 2)">▲</button><button type="button" class="step-btn size-stepbtn table-spinner step-btn--down" aria-label="Decrease rectangular height" onclick="stepRectHeight(${rowIndex}, -2)">▼</button></div></div><span class="inchSpan">"</span></td>
-        <td class="Vel" id="${rowIndex}2">${item.velocity}</td>
-        <td><small>FPM</small></td>
-        <td class="StLoss" id="${rowIndex}3">${item.staticLoss}</td>
-        <td><small>inWg/100ft</small></td>`;
-    fragment.appendChild(row);
-    inchSpanIds.push(`${rowIndex}1`);
+    const rectSize = `<div class="size-spinner size-spinner--left"><div class="stepper size-stepper"><button type="button" class="step-btn size-stepbtn table-spinner step-btn--up" aria-label="Increase rectangular width" onclick="stepRectWidth(${rowIndex}, 2)">▲</button><button type="button" class="step-btn size-stepbtn table-spinner step-btn--down" aria-label="Decrease rectangular width" onclick="stepRectWidth(${rowIndex}, -2)">▼</button></div><input class="size-input" type="number" dir="rtl" name="Ldsize" id="${rowIndex}0" step="2" min="4" value="${item.width}" oninput="CalcMeRec(${rowIndex})" required></div><span class="size-sep">"x</span> <span class="inch-wrap"><input class="size-input" type="number" name="Rdsize" step="2" min="4" value="${item.height}" oninput="CalcMeRec(${rowIndex})" id="${rowIndex}1" required><span class="inchSpan">"</span></span> <div class="size-spinner size-spinner--right"><div class="stepper size-stepper"><button type="button" class="step-btn size-stepbtn table-spinner step-btn--up" aria-label="Increase rectangular height" onclick="stepRectHeight(${rowIndex}, 2)">▲</button><button type="button" class="step-btn size-stepbtn table-spinner step-btn--down" aria-label="Decrease rectangular height" onclick="stepRectHeight(${rowIndex}, -2)">▼</button></div></div>`;
+    rectRows.push(
+      createRow([
+        createCell("size-cell", rectSize),
+        createCell("Vel", `<div class="Vel" id="${rowIndex}2">${item.velocity}</div>`),
+        createCell("unit-cell", "<small>FPM</small>"),
+        createCell("StLoss", `<div class="StLoss" id="${rowIndex}3">${item.staticLoss}</div>`),
+        createCell("unit-cell", "<small>inWg/100ft</small>"),
+      ])
+    );
     rowIndex += 1;
   });
 
-  tbody.appendChild(fragment);
+  fragment.appendChild(createBlock("rect", "Rectangular duct:", rectRows));
 
-  inchSpanIds.forEach((id) => FitAapostrophe(id));
+  output.appendChild(fragment);
 }
 
 function showInputError(message) {
-  const tbody = document.getElementById("OutputTable").getElementsByTagName("tbody")[0];
-  tbody.innerHTML = `<tr><td colspan="6">${message}</td></tr>`;
+  const output = document.getElementById("OutputGrid");
+  output.innerHTML = `<div class="result-error">${message}</div>`;
 }
 
 function inputsAreValid(cfm, maxVelocity, maxStaticLoss) {
@@ -227,21 +243,7 @@ function DoMath(event) {
   }
 }
 
-function injectSizeSpinnerStyles() {
-  const css = `
-    .size-spinner { display: inline-flex; align-items: center; gap: 0; }
-    .size-spinner .stepper { margin: 0; }
-    .size-input { margin: 0; height: 34px; vertical-align: middle; }
-    .size-unit { margin-left: 0; padding-left: 0.25em; }
-  `;
-  const s = document.createElement("style");
-  s.type = "text/css";
-  s.appendChild(document.createTextNode(css));
-  document.head.appendChild(s);
-}
-
 document.addEventListener("DOMContentLoaded", function () {
-  injectSizeSpinnerStyles();
   KeyPressed();
 }, false);
 
