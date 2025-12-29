@@ -21,14 +21,14 @@ input[type=number] {
 .L3-2,
 small {
     font-weight: 100;
-    color: #000000
+    color: #000000;
 }
 
 .L1-2,
 .L2-2,
 .L3-2 {
     white-space: nowrap;
-    padding-right: 6px;
+    padding-left: 6px;
     align-self: center;
     display: flex;
     align-items: center;
@@ -47,7 +47,7 @@ header {
             max-width: 50em;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: auto 6px 12px 9.8em 22em 6px auto;
+            grid-template-columns: auto 6px 10px 9.5em 22em 26px auto;
             grid-template-rows: 20px repeat(3, auto auto) auto;
             grid-template-areas: " . . . . . . . " ". . L1-1 L1-2 R1-1  . ." ". . L1-1 L1-3 R1-1  . ." ". . L2-1 L2-2 R1-1  . ." ". . L2-1 L2-3 R1-1  . ." ". . L3-1 L3-2 R1-1  . ." ". . L3-1 L3-3 R1-1  . ." ". . L4-1 L4-1 R1-1  . ."
         }
@@ -56,9 +56,9 @@ header {
     @media only screen and (max-width:508px) {
         .main-area {
             max-width: 50em;
-            margin: 0 auto;
+            margin: 0;
             display: grid;
-            grid-template-columns: auto 6px 12px 9.8em 10em 6px auto;
+            grid-template-columns: auto 5px 10px auto 10em 5px auto;
             grid-template-rows: 20px repeat(3, auto auto) auto;
             grid-template-areas: " . . . . . . . " ". . L1-1 L1-2 .  . ." ". . L1-1 L1-3 .  . ." ". . L2-1 L2-2 .  . ." ". . L2-1 L2-3 .  . ." ". . L3-1 L3-2 .  . ." ". . L3-1 L3-3 .  . ." ". . R1-1 R1-1 R1-1  R1-1 ."
         }
@@ -125,11 +125,12 @@ input[type=number]::-webkit-inner-spin-button {
 
 .step-group input[type=number] {
 
-    max-width: 5em;
+    max-width: 3em;
     height: 28px;
     font-size: 1.15em;
     text-align: right;
     border-radius: 6px 0 0 6px;
+    margin-left: 5px;
 }
 
 .stepper {
@@ -178,7 +179,7 @@ input[type=number]::-webkit-inner-spin-button {
 .step-btn.table-spinner {
     background: transparent;
     border: none;
-    color: #666;
+    color: #ababab;
     width: 25px;
     padding: 0 2px;
     padding-left: 5px;
@@ -277,7 +278,7 @@ input[type=number]::-webkit-inner-spin-button {
     grid-area: R1-1;
     font-size: 1.2em;
     display: grid;
-    row-gap: 10px;
+    row-gap: 0px;
     width: calc(100% - 10px);
     max-width: calc(100% - 10px);
 }
@@ -285,35 +286,40 @@ input[type=number]::-webkit-inner-spin-button {
 .result-block {
     display: grid;
     grid-template-columns: 5px 1fr;
-    column-gap: 5px;
+    column-gap: 0;
     align-items: stretch;
 }
 
 .result-bar {
     width: 5px;
-    border-radius: 2px;
+    border-radius: 0px;
 }
 
 .result-block--round .result-bar {
     background-color: green;
 }
 
+.result-cell.size-cell {
+    padding: 3px 7px;
+}
+
 .result-block--rect .result-bar {
     background-color: #90ee90;
+    margin-top: 10px;
 }
 
 .result-rows {
     display: grid;
-    grid-template-columns: minmax(1.0em, 1fr) 1.5em max-content 2.5em 2em;
-    column-gap: 0;
-    row-gap: 4px;
+    grid-template-columns: minmax(1em, 1fr) minmax(4ch, max-content) max-content minmax(4ch, max-content) max-content;
+    column-gap: 0px;
+    row-gap: 0px;
     align-items: center;
-    grid-auto-rows: 30px;
+    grid-auto-rows: 38px;
 }
 
 .result-heading {
     grid-column: 1 / -1;
-    padding: 3px 2px 3px 12px;
+    padding: 3px 2px 3px 6px;
     border-bottom: 1px solid #ece5e5;
 }
 
@@ -322,29 +328,45 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .result-cell {
-    padding: 3px 7px;
+    padding: 6px 0px;
     box-sizing: border-box;
     border-bottom: 1px solid #ece5e5;
-    height: 30px;
+    height: 38px;
+
 }
 
 .unit-cell {
     justify-self: stretch;
     text-align: left;
+    background-color: transparent;
 }
 
-.result-row:hover .result-cell {
-    background-color: #f5f5f5;
+@media (hover: hover) {
+    .result-row:hover .result-cell {
+        background-color: #fffffff3;
+    }
+
+    .result-row:hover .unit-cell {
+        background-color: #fffffff3;
+    }
 }
 
 .result-cell.Vel,
 .result-cell.StLoss {
     text-align: right;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .Vel,
 .StLoss {
     text-align: right;
+    display: block;
+    width: 100%;
+}
+
+.StLoss {
+    width: 3em;
 }
 
 .result-error {
@@ -356,7 +378,7 @@ small {
 }
 
 .size-sep {
-    margin-right: 0.15em;
+    margin-right: 0.0em;
 }
 
 .footer {
@@ -371,10 +393,41 @@ small {
     background-color: #223C68
 }
 
+.info-note {
+    display: block;
+    margin: 6px 0;
+}
+
+.info-note summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+.info-note summary::-webkit-details-marker {
+    display: none;
+}
+
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    line-height: 1;
+    color: #fff;
+}
+
+.info-note p {
+    margin: 6px 0 0 0;
+}
+
 .size-cell {
     display: flex;
     align-items: center;
-    gap: 0.25em;
+    gap: 0px;
     white-space: nowrap;
 }
 
@@ -418,7 +471,7 @@ a {
     /* small separation if desired */
 }
 
-@media only screen and (max-width:600px) {
+@media only screen and (max-width:508px) {
     body {
         font-size: 18px;
     }
@@ -442,11 +495,32 @@ a {
 
     .result-grid {
         font-size: 1.15em;
-        row-gap: 6px;
+
     }
 
     .result-cell,
     .result-heading {
         padding: 5px 4px;
     }
+
+    .result-cell {
+        display: flex;
+        align-items: center;
+    }
+
+    .result-rows {
+        grid-template-columns: minmax(1em, 1fr) minmax(4ch, max-content) max-content minmax(5ch, max-content) max-content;
+    }
+
+    .StLoss {
+        width: auto;
+    }
+
+    input[name=Ldsize],
+    input[name=Rdsize],
+    .Vel,
+    .StLoss {
+        font-size: 1.08em;
+    }
+
 }

@@ -40,7 +40,7 @@
         <div class="L1-1"></div>
         <label class="L1-2" for="CFM">Airflow Rate:</label>
         <div class="L1-3 step-group">
-            <input type="number" name="CFM" id="CFM" min="50" max="50000" step="50" value="800" inputmode="decimal"
+            <input type="number" name="CFM" id="CFM" min="50" max="80000" step="50" value="800" inputmode="decimal"
                 oninput="KeyPressed()" onkeydown="DoMath(event)" required autofocus>
             <div class="stepper">
                 <button type="button" class="step-btn input-spinner step-btn--up" aria-label="Increase airflow"
@@ -84,8 +84,12 @@
     </main>
 
     <footer class="footer">
-        <p>Pressure drop calculations are based on Hazen–Williams equation.<br>Air Density=0.0751 lbm/ft3 standard air,
-            Duct Roughness Factor=0.0003 ft for sheet metal and Air Dynamic Viscocity=0.018 cP.</p>
+        <details class="info-note">
+            <summary aria-label="Pressure drop info"><span class="info-icon">i</span></summary>
+            <p>Pressure drop calculations are based on Hazen–Williams equation.<br>Air Density=0.0751 lbm/ft3 standard
+                air,
+                Duct Roughness Factor=0.0003 ft for sheet metal and Air Dynamic Viscocity=0.018 cP.</p>
+        </details>
         <a href="https://ductulator.com/metric/" style="color:yellow;">Go to Metric Version</a>
         <p>&copy; 2017-
             <script>document.write(/\d{4}/.exec(Date())[0])</script> Miro Zaroukian. All rights reserved.

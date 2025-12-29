@@ -172,7 +172,7 @@ function renderOutput(options) {
   // Round block
   const round = options.find((item) => item.type === "round");
   if (round) {
-    const roundSize = `<div class="size-spinner size-spinner--left"><div class="stepper size-stepper"><button type="button" class="step-btn size-stepbtn table-spinner step-btn--up" aria-label="Increase round duct size" onclick="stepRoundSize(2)">▲</button><button type="button" class="step-btn size-stepbtn table-spinner step-btn--down" aria-label="Decrease round duct size" onclick="stepRoundSize(-2)">▼</button></div><input class="size-input" type="number" dir="rtl" name="Ldsize" id="00" min="4" step="2" value="${round.diameter}" oninput="CalcMeRnd()" required><span class="size-unit">"Ø</span></div>`;
+    const roundSize = `<div class="size-spinner size-spinner--left"><div class="stepper size-stepper"><button type="button" class="step-btn size-stepbtn table-spinner step-btn--up" aria-label="Increase round duct size" onclick="stepRoundSize(2)">▲</button><button type="button" class="step-btn size-stepbtn table-spinner step-btn--down" aria-label="Decrease round duct size" onclick="stepRoundSize(-2)">▼</button></div><input class="size-input" type="number" inputmode="numeric" pattern="[0-9]*" dir="rtl" name="Ldsize" id="00" min="4" step="2" value="${round.diameter}" oninput="CalcMeRnd()" required><span class="size-unit">Ø</span></div>`;
     const roundRow = createRow([
       createCell("size-cell", roundSize),
       createCell("Vel", `<div class="Vel" id="01">${round.velocity}</div>`),
@@ -180,7 +180,7 @@ function renderOutput(options) {
       createCell("StLoss", `<div class="StLoss" id="02">${round.staticLoss}</div>`),
       createCell("unit-cell", "<small>inWg/100ft</small>"),
     ]);
-    fragment.appendChild(createBlock("round", "Round duct:", [roundRow]));
+    fragment.appendChild(createBlock("round", "Round Duct [inch]:", [roundRow]));
   }
 
   // Rectangular block
@@ -188,7 +188,78 @@ function renderOutput(options) {
   const rectRows = [];
   let rowIndex = 1;
   rectOptions.forEach((item) => {
-    const rectSize = `<div class="size-spinner size-spinner--left"><div class="stepper size-stepper"><button type="button" class="step-btn size-stepbtn table-spinner step-btn--up" aria-label="Increase rectangular width" onclick="stepRectWidth(${rowIndex}, 2)">▲</button><button type="button" class="step-btn size-stepbtn table-spinner step-btn--down" aria-label="Decrease rectangular width" onclick="stepRectWidth(${rowIndex}, -2)">▼</button></div><input class="size-input" type="number" dir="rtl" name="Ldsize" id="${rowIndex}0" step="2" min="4" value="${item.width}" oninput="CalcMeRec(${rowIndex})" required></div><span class="size-sep">"x</span> <span class="inch-wrap"><input class="size-input" type="number" name="Rdsize" step="2" min="4" value="${item.height}" oninput="CalcMeRec(${rowIndex})" id="${rowIndex}1" required><span class="inchSpan">"</span></span> <div class="size-spinner size-spinner--right"><div class="stepper size-stepper"><button type="button" class="step-btn size-stepbtn table-spinner step-btn--up" aria-label="Increase rectangular height" onclick="stepRectHeight(${rowIndex}, 2)">▲</button><button type="button" class="step-btn size-stepbtn table-spinner step-btn--down" aria-label="Decrease rectangular height" onclick="stepRectHeight(${rowIndex}, -2)">▼</button></div></div>`;
+    const rectSize = `
+      <div class="size-spinner size-spinner--left">
+        <div class="stepper size-stepper">
+          <button
+            type="button"
+            class="step-btn size-stepbtn table-spinner step-btn--up"
+            aria-label="Increase rectangular width"
+            onclick="stepRectWidth(${rowIndex}, 2)"
+          >
+            ▲
+          </button>
+          <button
+            type="button"
+            class="step-btn size-stepbtn table-spinner step-btn--down"
+            aria-label="Decrease rectangular width"
+            onclick="stepRectWidth(${rowIndex}, -2)"
+          >
+            ▼
+          </button>
+        </div>
+        <input
+          class="size-input"
+          type="number"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          dir="rtl"
+          name="Ldsize"
+          id="${rowIndex}0"
+          step="2"
+          min="4"
+          value="${item.width}"
+          oninput="CalcMeRec(${rowIndex})"
+          required
+        >
+      </div>
+      <span class="size-sep">x</span>
+      <span class="inch-wrap">
+        <input
+          class="size-input"
+          type="number"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          name="Rdsize"
+          step="2"
+          min="4"
+          value="${item.height}"
+          oninput="CalcMeRec(${rowIndex})"
+          id="${rowIndex}1"
+          required
+        >
+      </span>
+      <div class="size-spinner size-spinner--right">
+        <div class="stepper size-stepper">
+          <button
+            type="button"
+            class="step-btn size-stepbtn table-spinner step-btn--up"
+            aria-label="Increase rectangular height"
+            onclick="stepRectHeight(${rowIndex}, 2)"
+          >
+            ▲
+          </button>
+          <button
+            type="button"
+            class="step-btn size-stepbtn table-spinner step-btn--down"
+            aria-label="Decrease rectangular height"
+            onclick="stepRectHeight(${rowIndex}, -2)"
+          >
+            ▼
+          </button>
+        </div>
+      </div>
+    `.trim();
     rectRows.push(
       createRow([
         createCell("size-cell", rectSize),
@@ -201,7 +272,7 @@ function renderOutput(options) {
     rowIndex += 1;
   });
 
-  fragment.appendChild(createBlock("rect", "Rectangular duct:", rectRows));
+  fragment.appendChild(createBlock("rect", "Rectangular Duct [inch x inch]:", rectRows));
 
   output.appendChild(fragment);
 }
@@ -239,6 +310,12 @@ function KeyPressed() {
 function DoMath(event) {
   if (event.key === "Enter") {
     event.preventDefault();
+    if (event.target && event.target.id === "CFM") {
+      const expression = prompt("Please enter math expression", "");
+      if (expression !== null && expression.trim() !== "") {
+        event.target.value = eval(expression);
+      }
+    }
     KeyPressed();
   }
 }
